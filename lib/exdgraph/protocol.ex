@@ -84,6 +84,18 @@ defmodule ExDgraph.Protocol do
     end
   end
 
+  # Quick fix to get rid of error messages in application log until we figure
+  # out what is going on here.
+  def handle_info({:gun_down, _pid, _protocol, _status, _, _}, state) do
+    {:ok, state}
+  end
+
+  def handle_info({:gun_up, _pid, _protocol}, state) do
+    {:ok, state}
+  end
+
+  # End of quick fix
+
   def handle_info(msg, state) do
     Logger.error(fn ->
       [inspect(__MODULE__), ?\s, inspect(self()), " received unexpected message: " | inspect(msg)]
