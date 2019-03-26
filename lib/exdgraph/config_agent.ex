@@ -12,6 +12,6 @@ defmodule ExDgraph.ConfigAgent do
 
   @doc false
   def get_config do
-    Agent.get(__MODULE__, fn state -> state[:opts] end)
+    Agent.get(__MODULE__, fn state -> state[:opts] end, 15_000)
   end
 end

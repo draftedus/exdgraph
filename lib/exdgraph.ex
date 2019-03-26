@@ -61,7 +61,8 @@ defmodule ExDgraph do
     keyfile: nil,
     cacertfile: nil,
     retry_linear_backoff: {delay: 150, factor: 2, tries: 3},
-    keepalive: infinity
+    keepalive: infinity,
+    deadline: 300_000
   ```
 
   And finally don't forget to add ExDgraph to the supervisor tree of your app:

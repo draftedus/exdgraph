@@ -103,6 +103,7 @@ defmodule ExDgraph.Utils do
     |> Keyword.put_new(:retry_linear_backoff, delay: 150, factor: 2, tries: 3)
     |> Keyword.put_new(:enforce_struct_schema, false)
     |> Keyword.put_new(:keepalive, :infinity)
+    |> Keyword.put_new(:grpc_timeout, 15_000)
     |> Enum.reject(fn {_k, v} -> is_nil(v) end)
   end
 end
